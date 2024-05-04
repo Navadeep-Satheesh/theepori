@@ -61,6 +61,16 @@ export default {
         password: this.pwd,
       });
       console.warn(result);
+      if (result.data.success) {
+
+      this.$router.push('/login');
+    } else {
+
+      console.log("User doesnot exist or incorrect password");
+    }
+  } catch (error) {
+    // Handle errors (e.g., network error)
+    console.error('An error occurred:', error);
     },
   },
 };
