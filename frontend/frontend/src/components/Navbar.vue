@@ -1,0 +1,57 @@
+<template>
+    <div className = "navbar">
+
+
+        <div class = "title">BookMyStage</div>
+
+        <div></div>
+
+        <div class= "bookings">Bookings</div>
+        
+    </div>
+</template>
+
+<script>
+
+export default {
+    name: "NavBar"
+}
+
+</script>
+
+<style >
+
+.navbar{
+    position: fixed;
+    width: 100vw;
+    height: 80px;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.title{
+    font-size: 28px;
+    margin-left: 10px;
+    color: rgb(190, 3, 3);
+    font-weight: 600;
+}
+
+.bookings{
+
+    font-size: 20px;
+    margin-right: 20px;
+    padding: 5px 10px;
+    
+    border-radius: 5px
+}
+
+.bookings:hover{
+    color: rgb(222, 25, 25);
+    cursor: pointer;
+    background-color: rgb(255, 163, 163);
+}
+
+</style>
