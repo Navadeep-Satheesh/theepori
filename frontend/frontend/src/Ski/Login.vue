@@ -44,15 +44,10 @@ export default {
       });
       console.warn(result);
       if (result.data.success) {
-
-      this.$router.push('/login');
-    } else {
-
-      console.log("User doesnot exist or incorrect password");
-    }
-  } catch(error) {
-    // Handle errors (e.g., network error)
-    console.error('An error occurred:', error);
+        this.$router.push("/About");
+      } else {
+        console.log("User doesnot exist or incorrect password");
+      }
     },
   },
 };
