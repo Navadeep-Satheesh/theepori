@@ -58,7 +58,7 @@ export default {
         {
             type: "user",
             email:this.email,
-            password:this.pwd;
+            password:this.pwd,
         }
       );
       console.warn(result);
