@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     async tryUser() {
-      let result = await axios.post("\api", {
+      let result = await axios.post("/api", {
         user_type: "user",
         username: this.email,
         password: this.pwd,
