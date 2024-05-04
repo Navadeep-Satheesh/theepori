@@ -47,7 +47,7 @@ export default {
 
 </script>
 
-<style>
+<style scroped>
 .all_rooms {
     background-color: rgb(255, 255, 255);
     height: 100vh;

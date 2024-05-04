@@ -58,13 +58,17 @@ var bookings = [
     ["3:00 PM", "5:00 PM"],
 ]
 
+var bookings_final = []
+
 for( let item of bookings){
-    item[0] =   parseInt(convertTime(item[0]))
-    item[1] = parseInt( convertTime(item[1]))
+    bookings_final.push([ parseInt(convertTime(item[0])) , parseInt( convertTime(item[1])) ])
+
+
 }
 
 function convertTime(time) {
 
+    
     let converted = 0
     let a = time.split(" ")[1]
     let t = time.split(" ")[0]
@@ -114,7 +118,7 @@ export default {
         return {
 
             times: times,
-            bookings: bookings
+            bookings: bookings_final
         }
     }
 }
@@ -122,7 +126,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 .book {
     width: 100vw;
     height: 100vh;

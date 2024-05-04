@@ -19,7 +19,7 @@ export default {
 
 </script>
 
-<style >
+<style scoped>
 
 .navbar{
     position: fixed;
@@ -57,7 +57,9 @@ export default {
 
 
 .bookings_link{
-    text-decoration: none;
+    text-decoration: none !important;
+    color: black;
+    
 }
 
 </style>
