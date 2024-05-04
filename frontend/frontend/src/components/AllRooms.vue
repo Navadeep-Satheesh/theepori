@@ -6,7 +6,12 @@
 
             <div class="single_room" v-for="room in rooms" :key="room[0]">
 
-                <h3>{{ room[1] }}</h3>
+                <h3 class = "stage_title">{{ room[1] }}</h3>
+                <h3 class= "stage_location">{{room[2]}}</h3>
+                <p class = "stage_desc">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro dolore autem dolorum animi temporibus veniam labore ab modi? Nesciunt, unde! Nemo, doloremque modi dignissimos accusamus reiciendis, obcaecati voluptatum consectetur repellendus cum qui voluptatibus odit atque officia quas quam necessitatibus impedit nisi debitis ducimus quae? Voluptatem explicabo maxime iure ad molestiae.
+                </p>
+                
 
             </div>
 
@@ -26,14 +31,14 @@ export default {
 
             rooms: [
 
-                [1, "CETAA HALL", ""],
-                [2, "Sargam Stage", ""],
-                [3, "Gazebo", ""],
-                [4, "Dwani Stage", ""],
-                [5, "CGPU Hall", ""],
-                [6, "DJ Hall", ""],
-                [7, "Archi Corner", ""],
-                [8, "CS Seminar Hall", ""],
+                [1, "CETAA HALL", "main block", ""],
+                [2, "Sargam Stage", "main block" , ""],
+                [3, "Gazebo", "infront of canteen" , ""],
+                [4, "Dwani Stage", "beside gazebo", ""],
+                [5, "CGPU Hall", "main block" , ""],
+                [6, "DJ Hall", "near indoor stadium gate", ""],
+                [7, "Archi Corner", "infront of architechture entrance" , ""],
+                [8, "CS Seminar Hall", "cs block" , ""],
             ]
         }
         }
@@ -59,18 +64,39 @@ export default {
     grid-template-columns: repeat(auto-fit, minmax(300px, 320px));
     align-items: center;
     justify-content: center;
+    gap: 40px;
 }
 
 .single_room {
     border: 1px solid rgb(209, 209, 209);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     width: 300px;
-    height: 300px;
-    padding: 10px;
+    height: 350px;
+    padding: 20px;
+    transition: 0.3s;
+   
+
 }
 
-.single_room h3{
+.single_room:hover{
+    background-color: rgb(238, 238, 238);
+}
+
+.stage_title{
     
+    font-size: 24px;
+}
+
+.stage_location{
+    font-size: 17px;
+    margin-top: 10px;
+    font-weight: 500;
+    color: rgb(158, 158, 158);
+}
+
+.stage_desc{
+    margin-top: 40px;
+    color: rgb(150, 150, 150);
 }
 
 </style>

@@ -6,7 +6,7 @@
 
         <div></div>
 
-        <div class= "bookings">Bookings</div>
+        <router-link class = "bookings_link" to = "/bookings"><div class= "bookings"> Bookings</div></router-link>
         
     </div>
 </template>
@@ -24,6 +24,7 @@ export default {
 .navbar{
     position: fixed;
     width: 100vw;
+    z-index: 100;
     height: 80px;
     background-color: white;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -52,6 +53,11 @@ export default {
     color: rgb(222, 25, 25);
     cursor: pointer;
     background-color: rgb(255, 163, 163);
+}
+
+
+.bookings_link{
+    text-decoration: none;
 }
 
 </style>
