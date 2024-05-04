@@ -1,3 +1,8 @@
 <template>
-    <div>This is login page form</div>
+    <div>
+        This is login page
+    </div>
 </template>
+<script>
+export default {};
+</script>
