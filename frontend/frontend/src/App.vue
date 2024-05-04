@@ -1,31 +1,10 @@
 <template>
-
-  <NavBar></NavBar>
-  <AllRooms></AllRooms>
- 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <router-view></router-view>
+      </div>
+    </div>
+  </div>
+  
 </template>
-
-<script>
-
-import AllRooms from "./components/AllRooms.vue"
-import NavBar from "./components/Navbar.vue"
-
-export default {
-  name: 'App',
-  components: {
-
-    AllRooms : AllRooms,
-    NavBar: NavBar
-  }
-}
-</script>
-
-<style>
-
-*{
-  padding: 0px;
-  margin: 0px;
-  font-family: sans-serif
-}
-
-</style>
