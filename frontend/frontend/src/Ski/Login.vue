@@ -45,6 +45,7 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
@@ -53,14 +54,12 @@ export default {
     };
   },
   methods: {
-    asynch tryUser() {
-      let result = await axios.post("\api",
-        {
-            type: "user",
-            email:this.email,
-            password:this.pwd,
-        }
-      );
+    async tryUser() {
+      let result = await axios.post("\api", {
+        type: "user",
+        email: this.email,
+        password: this.pwd,
+      });
       console.warn(result);
     },
   },
