@@ -38,8 +38,8 @@ export default {
   methods: {
     async tryUser() {
       let result = await axios.post("\api", {
-        type: "user",
-        email: this.email,
+        user_type: "user",
+        username: this.email,
         password: this.pwd,
       });
       console.warn(result);
