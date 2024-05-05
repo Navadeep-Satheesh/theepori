@@ -5,8 +5,10 @@
         <div class = "title">BookMyStage</div>
 
         <div></div>
-
+        <span class = "side_links">
+        <router-link class = "bookings_link" to = "/"><div class= "bookings"> Book</div></router-link>
         <router-link class = "bookings_link" to = "/bookings"><div class= "bookings"> Bookings</div></router-link>
+        </span>
         
     </div>
 </template>
@@ -38,6 +40,13 @@ export default {
     margin-left: 10px;
     color: rgb(190, 3, 3);
     font-weight: 600;
+}
+
+.side_links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center
 }
 
 .bookings{

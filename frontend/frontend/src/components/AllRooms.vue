@@ -6,12 +6,20 @@
 
             <div class="single_room" v-for="room in rooms" :key="room[0]">
 
-                <h3 class = "stage_title">{{ room[1] }}</h3>
-                <h3 class= "stage_location">{{room[2]}}</h3>
-                <p class = "stage_desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro dolore autem dolorum animi temporibus veniam labore ab modi? Nesciunt, unde! Nemo, doloremque modi dignissimos accusamus reiciendis, obcaecati voluptatum consectetur repellendus cum qui voluptatibus odit atque officia quas quam necessitatibus impedit nisi debitis ducimus quae? Voluptatem explicabo maxime iure ad molestiae.
-                </p>
-                
+                <router-link  class= "book_link" :to="`/book/${room[0]}`" >
+
+                    <h3 class="stage_title">{{ room[1] }}</h3>
+                    <h3 class="stage_location">{{ room[2] }}</h3>
+                    <p class="stage_desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro dolore autem dolorum animi
+                        temporibus veniam labore ab modi? Nesciunt, unde! Nemo, doloremque modi dignissimos accusamus
+                        reiciendis, obcaecati voluptatum consectetur repellendus cum qui voluptatibus odit atque officia
+                        quas quam necessitatibus impedit nisi debitis ducimus quae? Voluptatem explicabo maxime iure ad
+                        molestiae.
+                    </p>
+
+                </router-link>
+
 
             </div>
 
@@ -32,16 +40,16 @@ export default {
             rooms: [
 
                 [1, "CETAA HALL", "main block", ""],
-                [2, "Sargam Stage", "main block" , ""],
-                [3, "Gazebo", "infront of canteen" , ""],
+                [2, "Sargam Stage", "main block", ""],
+                [3, "Gazebo", "infront of canteen", ""],
                 [4, "Dwani Stage", "beside gazebo", ""],
-                [5, "CGPU Hall", "main block" , ""],
+                [5, "CGPU Hall", "main block", ""],
                 [6, "DJ Hall", "near indoor stadium gate", ""],
-                [7, "Archi Corner", "infront of architechture entrance" , ""],
-                [8, "CS Seminar Hall", "cs block" , ""],
+                [7, "Archi Corner", "infront of architechture entrance", ""],
+                [8, "CS Seminar Hall", "cs block", ""],
             ]
         }
-        }
+    }
 
 }
 
@@ -52,6 +60,11 @@ export default {
     background-color: rgb(255, 255, 255);
     height: 100vh;
     width: 100vw;
+}
+
+.book_link{
+    text-decoration: none !important;
+    color: black;
 }
 
 .rooms_list {
@@ -74,29 +87,28 @@ export default {
     height: 350px;
     padding: 20px;
     transition: 0.3s;
-   
+
 
 }
 
-.single_room:hover{
+.single_room:hover {
     background-color: rgb(238, 238, 238);
 }
 
-.stage_title{
-    
+.stage_title {
+
     font-size: 24px;
 }
 
-.stage_location{
+.stage_location {
     font-size: 17px;
     margin-top: 10px;
     font-weight: 500;
     color: rgb(158, 158, 158);
 }
 
-.stage_desc{
+.stage_desc {
     margin-top: 40px;
     color: rgb(150, 150, 150);
 }
-
 </style>

@@ -1,31 +1,37 @@
 <template>
-    <div class = "bookings">
+    <div class="bookings">
 
 
         <div class="single_booking" v-for="booking in bookings" :key="booking[0]">
 
-            <h3 class="stage_name">{{booking[1]}}</h3>
-            <h3 class="booked_date">{{booking[2]}}</h3>
-            <div class="time"> <h3 class="start_time">{{booking[3]}}</h3> <h3>TO</h3> <h3 class="end_time">{{booking[4]}}</h3>  </div>
+            <h3 class="stage_name">{{ booking[1] }}</h3>
+            <h3 class="booked_date">{{ booking[2] }}</h3>
+            <div class="time">
+                <h3 class="start_time">{{ booking[3] }}</h3>
+                <h3>TO</h3>
+                <h3 class="end_time">{{ booking[4] }}</h3>
+            </div>
             <div class="purpose">
 
                 <!-- {{ booking[5] }} -->
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis incidunt magnam deserunt ipsum adipisci ab, ipsa minima laudantium assumenda, doloribus omnis fugiat ad? Hic expedita, sapiente sed blanditiis commodi voluptates?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis incidunt magnam deserunt ipsum adipisci
+                ab, ipsa minima laudantium assumenda, doloribus omnis fugiat ad? Hic expedita, sapiente sed blanditiis
+                commodi voluptates?
 
 
             </div>
             <div class="status_div">
 
-                <span v-if="booking[6] == 1"  class="status accepted">Accepted</span>
+                <span v-if="booking[6] == 1" class="status accepted">Accepted</span>
                 <span v-else-if="booking[6] == 0" class="status pending">Pending</span>
-                <span v-else-if="booking[6]==-1" class="status rejected">Rejected</span>
+                <span v-else-if="booking[6] == -1" class="status rejected">Rejected</span>
 
             </div>
 
         </div>
 
-        
-        
+
+
     </div>
 </template>
 
@@ -33,27 +39,52 @@
 
 var bookings = [
 
-[1 , "Sargam" , "05 Aug 2024", "9:00 AM", "10:00 AM", ""  , 0],
-[1 , "Sargam" , "05 Aug 2024", "9:00 AM", "10:00 AM", ""  , 0],
-[1 , "Sargam" , "05 Aug 2024", "9:00 AM", "10:00 AM", ""  , -1],
-[1 , "Sargam" , "05 Aug 2024", "9:00 AM", "10:00 AM", ""  , -1],
-[1 , "Sargam" , "05 Aug 2024", "9:00 AM", "10:00 AM", ""  , -1],
-[1 , "Sargam" , "05 Aug 2024", "9:00 AM", "10:00 AM", ""  , 1],
-[1 , "Sargam" , "05 Aug 2024", "9:00 AM", "10:00 AM", ""  , 1],
-[1 , "Sargam" , "05 Aug 2024", "9:00 AM", "10:00 AM", ""  , 1],
-[1 , "Sargam" , "05 Aug 2024", "9:00 AM", "10:00 AM", ""  , 1],
-[1 , "Sargam" , "05 Aug 2024", "9:00 AM", "10:00 AM", ""  , 1]
+    [1, "Sargam", "05 Aug 2024", "9:00 AM", "10:00 AM", "", 0],
+    [1, "Sargam", "05 Aug 2024", "9:00 AM", "10:00 AM", "", 0],
+    [1, "Sargam", "05 Aug 2024", "9:00 AM", "10:00 AM", "", -1],
+    [1, "Sargam", "05 Aug 2024", "9:00 AM", "10:00 AM", "", -1],
+    [1, "Sargam", "05 Aug 2024", "9:00 AM", "10:00 AM", "", -1],
+    [1, "Sargam", "05 Aug 2024", "9:00 AM", "10:00 AM", "", 1],
+    [1, "Sargam", "05 Aug 2024", "9:00 AM", "10:00 AM", "", 1],
+    [1, "Sargam", "05 Aug 2024", "9:00 AM", "10:00 AM", "", 1],
+    [1, "Sargam", "05 Aug 2024", "9:00 AM", "10:00 AM", "", 1],
+    [1, "Sargam", "05 Aug 2024", "9:00 AM", "10:00 AM", "", 1]
 
 ]
 
-export default{
+export default {
 
-    "name": "BookingsPage" , 
-    "data": ()=>{
+    "name": "BookingsPage",
+    "data": () => {
         return {
 
-            bookings : bookings
+            bookings: bookings
+        }   
+    },
+    "methods": {
+
+        getBookings(){
+
+            fetch("http://127.0.0.1:5000/getUserBookings" , {
+                method: "POST",
+                headers : {
+                    "Content-Type": "application/json"
+                },
+                body : JSON.stringify({
+                    token : localStorage.getItem("token")
+                }) 
+               
+            }).then((response)=>{
+                return response.json()
+            }).then((data)=>{
+                this.bookings = data
+                console.log(data)
+            })
         }
+    },
+    mounted () {
+
+        this.getBookings()
     }
 }
 
@@ -61,15 +92,14 @@ export default{
 
 
 <style>
-
-.bookings{
+.bookings {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 150px;
 }
 
-.single_booking{
+.single_booking {
 
     border: 1px solid rgb(229, 229, 229);
     width: 80vw;
@@ -78,53 +108,53 @@ export default{
     padding: 20px;
 }
 
-.stage_name{
+.stage_name {
     font-size: 30px;
     margin-bottom: 20px;
 }
 
-.booked_date{
+.booked_date {
     font-size: 14px
 }
 
-.time{
+.time {
     display: flex;
     align-items: center;
     font-size: 14px;
 }
 
-.time h3{
+.time h3 {
     font-size: 14px;
     margin-right: 5px;
 }
 
-.status{
+.status {
     padding: 7px 10px;
     background-color: green;
     width: min-content;
     color: white
 }
 
-.status_div{
+.status_div {
     margin-top: 20px;
- 
+
     display: flex;
     justify-content: flex-end;
 }
-.purpose{
+
+.purpose {
     color: rgb(143, 143, 143)
 }
 
-.accepted{
+.accepted {
     background-color: green;
 }
-.pending{
+
+.pending {
     background-color: orange;
 }
-.rejected{
+
+.rejected {
     background-color: red;
 }
-
-
-
 </style>

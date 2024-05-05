@@ -1,7 +1,7 @@
 <template>
   <div class="top-container">
     <div class="container">
-      <p class="heading">Login !</p>
+      <p class="heading">Login!</p>
       <div class="login-container">
         <form>
           <label class="labels">Email</label>
@@ -17,37 +17,48 @@
               v-model="pwd"
             />
           </div>
-          <button class="submit-btn" type="submit" v-on:click="tryUser()">
+          <button class="submit-btn" type="submit" v-on:click="tryUser($event)">
             Login
           </button>
         </form>
       </div>
     </div>
-    <p>password : {{ pwd }}</p>
+    <!-- <p>password : {{ pwd }}</p> -->
   </div>
 </template>
 <script>
-import axios from "axios";
+
 export default {
+  name : "SignIn",
   data() {
     return {
-      email: "",
+      username: "",
       pwd: "",
     };
   },
   methods: {
-    async tryUser() {
-      let result = await axios.post("/api", {
-        user_type: "user",
-        username: this.email,
-        password: this.pwd,
-      });
-      console.warn(result);
-      if (result.data.success) {
-        this.$router.push("/About");
-      } else {
-        console.log("User doesnot exist or incorrect password");
-      }
+    async tryUser(event) {
+      event.preventDefault();
+      
+      fetch("http://127.0.0.1:5000/login", {
+        method: "POST", 
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username : this.email,
+          password : this.pwd,
+          user_type : "user"
+        })
+      }).then((response)=>{
+        if(response.status == 200){
+          return response.json()
+        }
+      }).then((data)=>{
+        localStorage.setItem("signin", true);
+        localStorage.setItem("token", data['token'])
+        window.location.reload()
+      })
     },
   },
 };
@@ -61,34 +72,55 @@ export default {
   justify-content: center;
 }
 .heading {
+  margin-top: 30px;
   padding: 20px;
   font-size: 30px;
+  margin-bottom: 25px;
+  font-weight: 600;
 }
 .container {
-  min-height: 50vh;
-  min-width: 20vw;
-  background-color: aliceblue;
+  min-height: 60vh;
+  min-width: 40vw;
+  background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .login-container {
   display: flex;
+
+  width: 60%;
   flex-direction: column;
 }
 .input-box {
   padding: 20px;
+  width: 80%;
+
+
 }
+.input-box input{
+  padding: 5px;
+  width: 100%;
+} 
+
 .labels {
   padding: 20px;
 }
 .input {
   min-height: 6vh;
+  
 }
 .submit-btn {
   width: 10vw;
   height: 3vh;
   margin: 18px;
-  border-radius: 10px;
+  background-color: black;
+  padding: 15px 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 </style>
