@@ -1,4 +1,4 @@
-
+![Vuejs notion](https://github.com/TH-Activities/saturday-hack-night-template/assets/117498997/b879ba9f-2057-431b-99db-e86a0010b1ea)
 # BookMyStage
 
 In our college campus  whenever there is an event like a workshop , orientation session , talk sessions , jamming sessions , competitions organized by various clubs and departments , we have to take the permission from the authorities though a request letter , To Make this process more easier for the colleges , we have introduced this platform where  coordinators of events can book a venue for their event online thought a web app and the authorities can verify the request and approve or reject them 
