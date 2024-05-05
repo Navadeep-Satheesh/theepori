@@ -1,4 +1,4 @@
-![Vuejs notion](https://github.com/TH-Activities/saturday-hack-night-template/assets/117498997/b879ba9f-2057-431b-99db-e86a0010b1ea)
+![WhatsApp Image 2024-05-05 at 2 48 15 PM](https://github.com/Navadeep-Satheesh/theepori/assets/65801179/b439725c-e496-4afb-a429-b25ac7bf17e9)![Vuejs notion](https://github.com/TH-Activities/saturday-hack-night-template/assets/117498997/b879ba9f-2057-431b-99db-e86a0010b1ea)
 
 # BookMyStage
 
@@ -30,29 +30,35 @@ In our college campus  whenever there is an event like a workshop , orientation 
 #### Login Page
 
 
-![[screenshots/WhatsApp Image 2024-05-05 at 2.40.51 PM 1.jpeg]]
+![WhatsApp Image 2024-05-05 at 2 48 15 PM](https://github.com/Navadeep-Satheesh/theepori/assets/65801179/b775a4ff-8a6d-4312-a995-8d174232a390)
+
 
 #### select the desired venue
 
 
-![[screenshots/WhatsApp Image 2024-05-05 at 2.46.36 PM.jpeg]]
+![WhatsApp Image 2024-05-05 at 2 46 36 PM](https://github.com/Navadeep-Satheesh/theepori/assets/65801179/fa87ae14-5d5d-4b20-b390-5b431756853b)
+
 
 #### Book the Slot
 
-![[screenshots/WhatsApp Image 2024-05-05 at 2.47.53 PM.jpeg]]
+
+![WhatsApp Image 2024-05-05 at 2 47 53 PM](https://github.com/Navadeep-Satheesh/theepori/assets/65801179/dbe296c7-6363-4d47-be3d-7af104d599d6)
+![WhatsApp Image 2024-05-05 at 2 48 15 PM](https://github.com/Navadeep-Satheesh/theepori/assets/65801179/167ca0e6-455b-4e9d-a3cd-030cc7f11c57)
 
 
 #### View Your Bookings
 
 
-![[screenshots/WhatsApp Image 2024-05-05 at 2.46.56 PM 1.jpeg]]
+
+![WhatsApp Image 2024-05-05 at 2 46 56 PM](https://github.com/Navadeep-Satheesh/theepori/assets/65801179/72ed5cf4-db18-4ee3-9d3d-cf4e4b915e91)
 
 
 ### Admin
 
 #### approve or reject bookings
 
-![[screenshots/WhatsApp Image 2024-05-05 at 3.02.25 PM.jpeg]]
+![WhatsApp Image 2024-05-05 at 3 02 25 PM](https://github.com/Navadeep-Satheesh/theepori/assets/65801179/07414a84-d1d0-4273-8dc6-50c0987542c8)
+
 ## Libraries used
 
 1. Vue.js for front end
