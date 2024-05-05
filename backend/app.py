@@ -7,7 +7,7 @@ import jwt
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "dfasdf"
-CORS(app, origins=["http://localhost:8080"])
+CORS(app, origins=["http://localhost:8080","http://localhost:5001"])
 
 
 
@@ -35,10 +35,11 @@ def login():
     print(user_type , username , password)
     if user_type == 'admin':
         admin = adminLogin(username, password)
+        print(admin)
         if admin:
-            token = jwt.encode({"admin_id": user[0]}, app.config['SECRET_KEY'])
-            response = make_response(jsonify({'message': '1'}))
-            response.set_cookie( "token",  token)
+            token = jwt.encode({"admin_id": admin[0]}, app.config['SECRET_KEY'])
+            
+            response = make_response(jsonify({'message': '1' , 'token' : token}))
             response.status_code = 200
             return response
             
@@ -144,31 +145,43 @@ def getUserBookings():
     data = cursor.fetchall()
     return ( jsonify(data), 200)
 
+    
+@app.route("/getAdminBookings", methods = ["GET", "POST"])
+def getAdminBookings():
+    
+    connection , cursor = connect()
+    token = request.json.get("token")
+    print(token)
+    
+  
+ 
+    cursor.execute(f"select booking_id , room_name , scheduled_date , start_time , end_time , purpose,  status from bookings, rooms  where   bookings.room_id = rooms.room_id")
+    data = cursor.fetchall()
+    return ( jsonify(data), 200)
+
 
     
-@app.route("/approve_request")
+@app.route("/approve_request" , methods = ["GET", "POST"])
 def apporove_request():
     connection ,cursor = connect()
-    if session['signed_in']:
-        booking_id = request.json.get("booking_id")
-        cursor.execute(f"update bookings set status = 1 where booking_id = {booking_id}")
-        connection.commit()
-        return ('' , 200)
-    else:
-        return ('' , 401)
+    
+    booking_id = request.json.get("booking_id")
+    cursor.execute(f"update bookings set status = 1 where booking_id = {booking_id}")
+    connection.commit()
+    return ('' , 200)
+  
     
 
 
-@app.route("/reject_request")
+@app.route("/reject_request", methods  = ["GET", "POST"])
 def reject_request():
     connection , cursor =  connect()
-    if session['signed_in']:
-        booking_id = request.json("booking_id")
-        cursor.execute(f"update bookings set status = -1 where booking_id = {booking_id}")
-        connection.commit()
-        return ('' , 200)
-    else:
-        return ('', 401)
+   
+    booking_id = request.json.get("booking_id")
+    cursor.execute(f"update bookings set status = -1 where booking_id = {booking_id}")
+    connection.commit()
+    return ('' , 200)
+    
     
 
 
