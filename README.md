@@ -1,4 +1,3 @@
-![WhatsApp Image 2024-05-05 at 2 48 15 PM](https://github.com/Navadeep-Satheesh/theepori/assets/65801179/b439725c-e496-4afb-a429-b25ac7bf17e9)![Vuejs notion](https://github.com/TH-Activities/saturday-hack-night-template/assets/117498997/b879ba9f-2057-431b-99db-e86a0010b1ea)
 
 # BookMyStage
 
