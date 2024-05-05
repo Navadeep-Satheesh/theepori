@@ -32,7 +32,21 @@ def createTables():
      cursor.execute(query)
      connection.commit()
 
+def adminLogin(username, password):
+    connection, cursor = connect()
+    query = "SELECT * FROM admins WHERE email=? AND password=?"
+    cursor.execute(query, (username, password))
+    admin = cursor.fetchone()
+    connection.close()
+    return admin
 
+def userLogin(username, password):
+    connection, cursor = connect()
+    query = "SELECT * FROM users WHERE email=? AND password=?"
+    cursor.execute(query, (username, password))
+    user = cursor.fetchone()
+    connection.close()
+    return user
           
 
 
@@ -47,7 +61,18 @@ def queryMode():
         print(data)
         connection.commit()
 
-queryMode()
+
+def run(query):
+     connection , cursor = connect()
+     cursor.execute(query)
+     data = cursor.fetchall()
+     connection.commit()
+     return data
+
+if __name__ == "__main__":
 
 
-     
+     queryMode()
+
+
+
